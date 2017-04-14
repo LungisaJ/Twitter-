@@ -1,0 +1,19 @@
+var Twit = require("twit");
+
+var keys = require('./keys');
+var T = new Twit(keys);
+
+
+var tweet = {
+  status: '#coding homework from node.js'
+}
+
+T.post('statuses/update', { status: 'Hello Twitter World!' },
+  function(err, data, response) {
+    console.log(data)
+  })
+
+T.get('search/tweets', { q: 'rainbow', count: 5 },
+  function(err, data, response) {
+    console.log(data)
+})
